@@ -175,3 +175,123 @@ The dashboard provides visual insights using interactive charts:
 ---
 
 # 📂 Project Structure
+
+FreshBites/
+
+│
+├── frontend/ # React User Application
+│
+├── backend/ # Node.js Express API Server
+│
+├── admin/ # Admin Dashboard
+│
+└── README.md
+
+
+---
+
+# ⚙️ Installation & Setup
+
+## Clone Repository
+
+```bash
+git clone <repository-url>
+
+cd MERNFoodProject
+
+Install Dependencies
+Backend
+cd backend
+
+npm install
+Frontend
+cd ../frontend
+
+npm install
+Admin Panel
+cd ../admin
+
+npm install
+🔑 Environment Variables
+
+Create .env file inside the backend folder.
+
+Example:
+
+MONGODB_URI=your_mongodb_connection_string
+
+JWT_SECRET=your_jwt_secret
+
+EMAIL_USER=your_email
+
+EMAIL_PASS=your_email_password
+
+GROQ_API_KEY=your_groq_api_key
+▶️ Run Application
+Start Backend
+cd backend
+
+npm start
+Start Frontend
+cd frontend
+
+npm run dev
+Start Admin Dashboard
+cd admin
+
+npm run dev
+📸 Screenshots
+
+(Add application screenshots after deployment)
+
+🎯 Learning Outcomes
+
+Through this project, I gained practical experience in:
+
+Building scalable MERN applications
+Designing REST APIs
+Implementing authentication systems
+Integrating third-party services
+Working with AI APIs
+Creating analytics dashboards
+Database design with MongoDB
+Deployment and Git workflow
+🏢 Internship Project Information
+
+Developed During:
+
+MERN Stack Developer Internship
+
+Organization:
+Maxgen Technologies Pvt. Ltd., Ahmedabad
+
+Role:
+MERN Stack Developer Intern
+
+Technologies Used:
+
+React.js
+Node.js
+Express.js
+MongoDB
+Tailwind CSS
+REST APIs
+AI Integration
+👨‍💻 Developer
+Mohmadhusen Khimani
+
+MERN Stack Developer | AI/ML Enthusiast
+
+React.js
+Node.js
+Express.js
+MongoDB
+Artificial Intelligence
+
+🔗 GitHub:
+https://github.com/mohmadhusenkhimani
+
+🔗 LinkedIn:
+https://www.linkedin.com/in/mohmadhusenkhimani/
+
+⭐ If you find this project useful, consider giving it a star!
