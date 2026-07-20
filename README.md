@@ -1,132 +1,177 @@
 # 🍔 FreshBites - AI Powered Food Delivery Platform
 
-A full-stack MERN Food Delivery application with an Admin Dashboard, AI features, authentication, analytics, and modern UI.
+![MERN Stack](https://img.shields.io/badge/MERN-Full%20Stack-green)
+![React](https://img.shields.io/badge/Frontend-React.js-blue)
+![Node.js](https://img.shields.io/badge/Backend-Node.js-brightgreen)
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-darkgreen)
+![AI Powered](https://img.shields.io/badge/AI-Groq%20Llama%203.3-purple)
+
+## 📌 Project Overview
+
+**FreshBites** is a modern **AI-powered Food Delivery Platform** built using the **MERN Stack (MongoDB, Express.js, React.js, Node.js)**.
+
+The application provides a complete food ordering ecosystem with customer features, an advanced admin dashboard, secure authentication, analytics, and AI-powered business intelligence.
+
+This project was developed during my **MERN Stack Developer Internship at Maxgen Technologies Pvt. Ltd., Ahmedabad**, where I worked on designing and implementing full-stack web application features using modern technologies and industry practices.
 
 ---
 
-## 🚀 Tech Stack
+# 🚀 Key Highlights
 
-### Frontend
+- Full-stack MERN architecture
+- Secure JWT-based authentication
+- Firebase Google Authentication
+- Role-based User & Admin management
+- AI-powered business insights
+- AI review analysis and summarization
+- Interactive analytics dashboard
+- Real-time order management workflow
+- Responsive modern UI design
+
+---
+
+# 🛠️ Technology Stack
+
+## Frontend
 
 - React.js
 - Vite
 - Tailwind CSS
+- React Router DOM
 - Axios
-- React Router
 - Recharts
+- Context API
 
-### Backend
+## Backend
 
 - Node.js
 - Express.js
-- MongoDB
+- RESTful APIs
 - JWT Authentication
-- Firebase Google Login
+- Firebase Admin SDK
 - Nodemailer
-- Groq AI (Llama 3.3)
+- MongoDB
+
+## Database
+
+- MongoDB
+- Mongoose ODM
+
+## Artificial Intelligence
+
+- Groq AI API
+- Llama 3.3 Model
+
+## Development Tools
+
+- Git & GitHub
+- Postman
+- VS Code
+- MongoDB Compass
 
 ---
 
-## ✨ Features
+# ✨ Features
 
-### 👤 User
+# 👤 User Module
+
+### Authentication
 
 - User Registration & Login
-- Google Authentication
-- Browse Food Menu
-- Search Foods
-- Wishlist
-- Cart
-- Multiple Delivery Addresses
-- Place Orders
-- Order History
-- Ratings & Reviews
-- PDF Invoice
+- JWT Authentication
+- Google Login using Firebase
+- Secure user sessions
 
-### 👨‍💼 Admin
+### Food Ordering
 
-- Dashboard
+- Browse food menu
+- Search food items
+- Food categories
+- Add to cart
+- Wishlist management
+- Multiple delivery addresses
+- Place orders
+- Order history tracking
+
+### Customer Experience
+
+- Product ratings and reviews
+- PDF invoice generation
+- Email order notifications
+- Responsive mobile-friendly interface
+
+---
+
+# 👨‍💼 Admin Dashboard
+
+A powerful admin panel for managing the complete food delivery platform.
+
+## Dashboard Analytics
+
+- Total Users
+- Total Orders
+- Total Revenue
 - Revenue Analytics
 - Order Status Analytics
 - Top Selling Foods
+- Recent Orders Overview
+
+## Management Features
+
 - Manage Users
+- Manage Food Products
 - Manage Orders
-- Manage Foods
-- Coupons
+- Update Order Status
+- Coupon Management
 - Newsletter Management
-- Contact Management
-
-### 🤖 AI Features
-
-- AI Business Insights
-- AI Review Summarizer
+- Customer Contact Management
 
 ---
 
-## 📊 Dashboard
+# 🤖 AI Powered Features
 
-- Total Orders
-- Total Revenue
-- Total Users
-- Revenue Charts
+## AI Business Insights
+
+Provides intelligent analysis of business data including:
+
+- Sales performance insights
+- Revenue trends
+- Customer behavior analysis
+- Business improvement suggestions
+
+
+## AI Review Summarizer
+
+Automatically analyzes customer reviews and generates:
+
+- Positive feedback summary
+- Common complaints
+- Customer satisfaction insights
+- Improvement recommendations
+
+---
+
+# 📊 Admin Analytics Dashboard
+
+The dashboard provides visual insights using interactive charts:
+
+- Revenue Graphs
 - Order Status Charts
-- Top Selling Foods
-- Recent Orders
-- AI Business Insights
+- Sales Performance
+- Food Popularity Analysis
+- Business Growth Insights
 
 ---
 
-## ⚙️ Installation
+# 🔐 Security Features
 
-```bash
-git clone <repository-url>
-
-cd MERNFoodProject
-
-npm install
-
-cd backend
-npm install
-
-cd ../frontend
-npm install
-
-cd ../admin
-npm install
-```
+- JWT Token Authentication
+- Password encryption
+- Protected API routes
+- Role-based authorization
+- Firebase authentication verification
+- Secure environment variables
 
 ---
 
-## 🔑 Environment Variables
-
-Create a `.env` file inside the backend folder.
-
-Example:
-
-```env
-MONGODB_URI=your_mongodb_uri
-
-JWT_SECRET=your_secret
-
-EMAIL_USER=your_email
-
-EMAIL_PASS=your_password
-
-GROQ_API_KEY=your_groq_api_key
-```
-
----
-
-## 📷 Screenshots
-
-(Add screenshots here after deployment.)
-
----
-
-## 👨‍💻 Developer
-
-**Mohmadhusen Khimani**
-
-MERN Stack Developer
-
-AI Enthusiast
+# 📂 Project Structure
