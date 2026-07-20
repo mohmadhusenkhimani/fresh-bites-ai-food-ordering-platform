@@ -375,18 +375,31 @@ npm run dev
 
 
 ---
-
 # 📸 Screenshots
 
-(Add project screenshots here)
+## 🏠 Home Page
 
-Example:
+![Home Page](./screenshots/home.png)
 
-- Home Page
-- Food Menu
-- Cart Page
-- Admin Dashboard
-- AI Analytics
+
+## 🍕 Food Menu
+
+![Food Menu](./screenshots/menu.png)
+
+
+## 🛒 Cart Page
+
+![Cart Page](./screenshots/cart.png)
+
+
+## 👨‍💼 Admin Dashboard
+
+![Admin Dashboard](./screenshots/admin-dashboard.png)
+
+
+## 🤖 AI Business Insights
+
+![AI Insights](./screenshots/ai-insights.png)
 
 
 ---
