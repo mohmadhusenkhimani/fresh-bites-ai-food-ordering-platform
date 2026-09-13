@@ -1,23 +1,35 @@
-// // const admin = require("firebase-admin");
-// // const serviceAccount = require("./serviceAccountKey.json");
+// const { initializeApp, cert } = require("firebase-admin/app");
 
-// // admin.initializeApp({
-// //   credential: admin.credential.cert(serviceAccount),
-// // });
+// const serviceAccount = require("./serviceAccountKey.json");
 
-// // module.exports = admin;
-// const admin = require("firebase-admin");
+// const app = initializeApp({
+//   credential: cert(serviceAccount),
+// });
 
-// console.log("Firebase Admin:");
-// console.log(admin);
+// module.exports = app;
 
-// module.exports = admin;
-const { initializeApp, cert } = require("firebase-admin/app");
+const { initializeApp, cert, getApps } = require("firebase-admin/app");
 
-const serviceAccount = require("./serviceAccountKey.json");
+let app;
 
-const app = initializeApp({
-  credential: cert(serviceAccount),
-});
+if (getApps().length === 0) {
+  if (process.env.FIREBASE_PROJECT_ID && process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY) {
+    // Production: Firebase credentials from environment variables
+    app = initializeApp({
+      credential: cert({
+        projectId: process.env.FIREBASE_PROJECT_ID,
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      }),
+    });
+  } else {
+    // Local development: Firebase service account file
+    const serviceAccount = require("./serviceAccountKey.json");
+
+    app = initializeApp({
+      credential: cert(serviceAccount),
+    });
+  }
+}
 
 module.exports = app;
