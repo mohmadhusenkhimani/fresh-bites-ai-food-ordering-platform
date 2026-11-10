@@ -156,7 +156,7 @@ export default function PopularFoods() {
   const fetchFoods = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/foods"
+        "https://fresh-bites-backend-updi.onrender.com/api/foods"
       );
 
       setFoods(response.data.foods || []);

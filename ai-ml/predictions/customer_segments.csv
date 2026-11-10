@@ -1,0 +1,18 @@
+customer_id,recency_days,frequency,monetary,segment,cluster
+6a0aefcabe7e772a72fbfc9a,124.0,2.0,596.0,Potential Loyalists,1
+6a0c883993d82265efb78dda,155.0,0.0,0.0,Needs Attention,0
+6a0c88d893d82265efb78ddb,125.0,3.0,987.0,Potential Loyalists,1
+6a0d8510dc56c7e9f02a3721,155.0,0.0,0.0,Needs Attention,0
+6a256b174f9819bc4fb51e1a,108.0,1.0,159.0,Occasional Customers,3
+6a3915fac39de72aa0fe4855,92.0,4.0,916.0,Potential Loyalists,1
+6a391810c39de72aa0fe4b24,155.0,0.0,0.0,Needs Attention,0
+6a391828c39de72aa0fe4b25,155.0,0.0,0.0,Needs Attention,0
+6a39183ac39de72aa0fe4b2c,155.0,0.0,0.0,Needs Attention,0
+6a391850c39de72aa0fe4b2d,155.0,0.0,0.0,Needs Attention,0
+6a391867c39de72aa0fe4b2e,155.0,0.0,0.0,Needs Attention,0
+6a3a46ffed1cd4f1f6f81b6f,0.0,13.0,4445.0,Loyal Customers,2
+6a3a8d0b9a9d49136daf72f1,155.0,0.0,0.0,Needs Attention,0
+6a3abc297b08f34cb6faa18f,92.0,3.0,686.0,Potential Loyalists,1
+6a3b6bd14e04b6e3e55a15a6,91.0,1.0,229.0,Occasional Customers,3
+6a4fa4cc41c0748cf524b209,75.0,4.0,1249.0,Potential Loyalists,1
+6a4fd1ad35be3dc3a8687cef,74.0,1.0,427.0,Occasional Customers,3

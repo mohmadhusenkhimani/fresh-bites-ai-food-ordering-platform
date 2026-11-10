@@ -145,6 +145,7 @@ import FoodDetails from "./FoodDetails";
 import MyAddresses from "./pages/MyAddresses";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import FoodChatbot from "./components/FoodChatbot";
 
 const App = () => {
 
@@ -285,6 +286,7 @@ const App = () => {
 
       </Routes>
 
+      <FoodChatbot />
 
     </>
   );

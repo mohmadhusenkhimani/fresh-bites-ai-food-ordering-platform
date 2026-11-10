@@ -1,0 +1,22 @@
+forecast_date,food_id,average_daily_quantity,forecast_quantity,method
+2026-09-24,6a39214c0fe991c30b78d151,0.036,0.036,28-day average baseline
+2026-09-25,6a39214c0fe991c30b78d151,0.036,0.036,28-day average baseline
+2026-09-26,6a39214c0fe991c30b78d151,0.036,0.036,28-day average baseline
+2026-09-27,6a39214c0fe991c30b78d151,0.036,0.036,28-day average baseline
+2026-09-28,6a39214c0fe991c30b78d151,0.036,0.036,28-day average baseline
+2026-09-29,6a39214c0fe991c30b78d151,0.036,0.036,28-day average baseline
+2026-09-30,6a39214c0fe991c30b78d151,0.036,0.036,28-day average baseline
+2026-09-24,6a3a141362d6a90982060dba,0.179,0.179,28-day average baseline
+2026-09-25,6a3a141362d6a90982060dba,0.179,0.179,28-day average baseline
+2026-09-26,6a3a141362d6a90982060dba,0.179,0.179,28-day average baseline
+2026-09-27,6a3a141362d6a90982060dba,0.179,0.179,28-day average baseline
+2026-09-28,6a3a141362d6a90982060dba,0.179,0.179,28-day average baseline
+2026-09-29,6a3a141362d6a90982060dba,0.179,0.179,28-day average baseline
+2026-09-30,6a3a141362d6a90982060dba,0.179,0.179,28-day average baseline
+2026-09-24,6a3ac88335251d0f0b3aeaa7,0.214,0.214,28-day average baseline
+2026-09-25,6a3ac88335251d0f0b3aeaa7,0.214,0.214,28-day average baseline
+2026-09-26,6a3ac88335251d0f0b3aeaa7,0.214,0.214,28-day average baseline
+2026-09-27,6a3ac88335251d0f0b3aeaa7,0.214,0.214,28-day average baseline
+2026-09-28,6a3ac88335251d0f0b3aeaa7,0.214,0.214,28-day average baseline
+2026-09-29,6a3ac88335251d0f0b3aeaa7,0.214,0.214,28-day average baseline
+2026-09-30,6a3ac88335251d0f0b3aeaa7,0.214,0.214,28-day average baseline

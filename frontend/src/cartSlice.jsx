@@ -14,6 +14,20 @@ const initialState = {
 
 const getItemId = (item) => item._id || item.id;
 
+const clearCouponState = (state) => {
+  state.appliedCoupon = null;
+  state.couponDiscount = 0;
+  localStorage.removeItem("coupon");
+};
+
+const persistItems = (state) => {
+  localStorage.setItem("cartItem", JSON.stringify(state.items));
+
+  if (state.items.length === 0) {
+    clearCouponState(state);
+  }
+};
+
 const cartSlice = createSlice({
   name: "carts",
   initialState,
@@ -36,7 +50,7 @@ const cartSlice = createSlice({
 });
       }
 
-      localStorage.setItem("cartItem", JSON.stringify(state.items));
+      persistItems(state);
     },
 
     // Remove Item Completely
@@ -45,7 +59,7 @@ const cartSlice = createSlice({
         (item) => getItemId(item) !== action.payload
       );
 
-      localStorage.setItem("cartItem", JSON.stringify(state.items));
+      persistItems(state);
     },
 
     // Increase Quantity
@@ -58,7 +72,7 @@ const cartSlice = createSlice({
         item.quantity += 1;
       }
 
-      localStorage.setItem("cartItem", JSON.stringify(state.items));
+      persistItems(state);
     },
 
     // Decrease Quantity
@@ -77,7 +91,7 @@ const cartSlice = createSlice({
         );
       }
 
-      localStorage.setItem("cartItem", JSON.stringify(state.items));
+      persistItems(state);
     },
 
     // Apply Coupon

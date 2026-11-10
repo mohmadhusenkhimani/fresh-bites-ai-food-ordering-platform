@@ -196,7 +196,7 @@ const EditFood = () => {
       setLoading(true);
 
       const res = await axios.get(
-        `http://localhost:5000/api/foods/${id}`
+        `https://fresh-bites-backend-updi.onrender.com/api/foods/${id}`
       );
 
       setFood(res.data.food);

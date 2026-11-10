@@ -499,7 +499,7 @@ const Foods = () => {
       setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:5000/api/foods"
+        "https://fresh-bites-backend-updi.onrender.com/api/foods"
       );
 
       setFoods(response.data.foods || []);
@@ -524,7 +524,7 @@ const Foods = () => {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/foods/${id}`
+        `https://fresh-bites-backend-updi.onrender.com/api/foods/${id}`
       );
 
       alert("Food Deleted Successfully");

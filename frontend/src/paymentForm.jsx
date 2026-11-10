@@ -659,7 +659,7 @@
 
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { clearCart } from "./cartSlice";
+import { clearCart, applyCoupon, removeCoupon } from "./cartSlice";
 import Footer from "./footer";
 import back from "./assets/p-3.jpg";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -682,6 +682,14 @@ export default function PaymentFormPage() {
     (state) => state.carts?.items || []
   );
 
+  const appliedCoupon = useSelector(
+    (state) => state.carts?.appliedCoupon || ""
+  );
+
+  const storedDiscount = useSelector(
+    (state) => Number(state.carts?.couponDiscount) || 0
+  );
+
   const reduxToken = useSelector(
     (state) => state.auth?.token
   );
@@ -697,11 +705,23 @@ export default function PaymentFormPage() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const {
-    couponCode = "",
-    discount = 0,
-    finalTotal = 0,
-  } = location.state || {};
+  const couponCode = appliedCoupon || "";
+
+  useEffect(() => {
+    if (appliedCoupon || !location.state?.couponCode) {
+      return;
+    }
+
+    dispatch(
+      applyCoupon({
+        code: location.state.couponCode,
+        discount: Number(location.state.discount) || 0,
+      })
+    );
+    // Copy navigation state into Redux once. Repeating this would
+    // restore a coupon the server has already rejected.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const [step, setStep] = useState(1);
   const [paymentMethod, setPaymentMethod] = useState("");
@@ -719,6 +739,11 @@ export default function PaymentFormPage() {
   const [addresses, setAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] =
     useState(null);
+  const [validatedDiscount, setValidatedDiscount] =
+    useState(storedDiscount);
+  const [couponNotice, setCouponNotice] = useState("");
+  const [validatingCoupon, setValidatingCoupon] =
+    useState(false);
 
   /*
    * ================================
@@ -738,20 +763,98 @@ export default function PaymentFormPage() {
 
   const shippingFee = 30;
 
-  /*
-   * finalTotal comes from Cart page
-   * after coupon discount.
-   *
-   * If no coupon was applied,
-   * use subtotal.
-   */
-  const discountedSubtotal =
-    Number(finalTotal) > 0
-      ? Number(finalTotal)
-      : subtotal;
+  const discount = couponCode
+    ? Math.min(
+        Math.max(Number(validatedDiscount) || 0, 0),
+        subtotal
+      )
+    : 0;
 
-  const total =
-    discountedSubtotal + shippingFee;
+  const total = Math.max(
+    0,
+    subtotal - discount + shippingFee
+  );
+
+  /*
+   * Re-check the saved coupon against the current cart.
+   * Refreshing Checkout keeps the coupon from Redux.
+   */
+  useEffect(() => {
+    if (!couponCode || subtotal <= 0) {
+      setValidatedDiscount(0);
+      setValidatingCoupon(false);
+      return undefined;
+    }
+
+    let cancelled = false;
+
+    const validateCoupon = async () => {
+      try {
+        setValidatingCoupon(true);
+        setCouponNotice("");
+
+        const response = await fetch(
+          "http://localhost:5000/api/coupons/apply",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              code: couponCode,
+              cartTotal: subtotal,
+            }),
+          }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          const validationError = new Error(
+            data.message || "This coupon can no longer be applied."
+          );
+          validationError.status = response.status;
+          throw validationError;
+        }
+
+        if (cancelled) {
+          return;
+        }
+
+        const nextDiscount = Number(data.discount) || 0;
+        setValidatedDiscount(nextDiscount);
+        dispatch(
+          applyCoupon({
+            code: data.coupon || couponCode,
+            discount: nextDiscount,
+          })
+        );
+      } catch (error) {
+        if (cancelled) {
+          return;
+        }
+
+        setCouponNotice(
+          error.message || "This coupon can no longer be applied."
+        );
+
+        if (error.status && error.status < 500) {
+          setValidatedDiscount(0);
+          dispatch(removeCoupon());
+        }
+      } finally {
+        if (!cancelled) {
+          setValidatingCoupon(false);
+        }
+      }
+    };
+
+    validateCoupon();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [couponCode, subtotal, dispatch]);
 
   /*
    * ================================
@@ -906,6 +1009,11 @@ export default function PaymentFormPage() {
       return;
     }
 
+    if (validatingCoupon) {
+      alert("Please wait while the coupon is verified.");
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -965,12 +1073,7 @@ export default function PaymentFormPage() {
             items: orderItems,
             shippingAddress,
             paymentMethod,
-            couponCode,
-            discount,
-            finalTotal:
-              Number(finalTotal) > 0
-                ? Number(finalTotal)
-                : subtotal,
+            couponCode: couponCode || "",
           }),
         }
       );
@@ -1773,11 +1876,13 @@ export default function PaymentFormPage() {
                     <button
                       type="button"
                       onClick={handleSubmit}
-                      disabled={loading}
+                      disabled={loading || validatingCoupon}
                       className="bg-red-500 hover:bg-red-600 disabled:bg-red-500/50 disabled:cursor-not-allowed text-white py-3.5 rounded-xl font-semibold transition shadow-lg shadow-red-500/10"
                     >
                       {loading
                         ? "Placing Order..."
+                        : validatingCoupon
+                        ? "Checking coupon..."
                         : `Place Order ₹${total}`}
                     </button>
 
@@ -1887,7 +1992,7 @@ export default function PaymentFormPage() {
 
                 </div>
 
-                {Number(discount) > 0 && (
+                {(couponCode || Number(discount) > 0) && (
                   <div className="flex justify-between text-sm">
 
                     <span className="text-gray-500">
@@ -1904,6 +2009,18 @@ export default function PaymentFormPage() {
                     </span>
 
                   </div>
+                )}
+
+                {validatingCoupon && (
+                  <p className="text-xs text-gray-500">
+                    Checking coupon...
+                  </p>
+                )}
+
+                {couponNotice && (
+                  <p className="text-xs text-red-400">
+                    {couponNotice}
+                  </p>
                 )}
 
                 <div className="border-t border-white/10 pt-4 mt-3">

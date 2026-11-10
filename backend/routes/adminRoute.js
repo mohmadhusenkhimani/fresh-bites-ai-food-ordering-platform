@@ -4,7 +4,10 @@ const jwt = require("jsonwebtoken");
 
 router.post("/login", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const email = String(req.body.email || "")
+      .trim()
+      .toLowerCase();
+    const password = String(req.body.password || "");
 
     if (
       email !== "admin@gmail.com" ||
@@ -12,7 +15,15 @@ router.post("/login", async (req, res) => {
     ) {
       return res.status(401).json({
         success: false,
-        message: "Invalid Admin Credentials",
+        message: "Invalid email or password.",
+      });
+    }
+
+    if (!process.env.JWT_SECRET) {
+      return res.status(503).json({
+        success: false,
+        message:
+          "Server misconfiguration: JWT_SECRET is missing in backend/.env.",
       });
     }
 

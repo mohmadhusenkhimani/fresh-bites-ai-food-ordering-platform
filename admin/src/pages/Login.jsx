@@ -100,6 +100,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API_BASE =
+  import.meta.env.VITE_API_BASE_URL?.replace(/\/+$/, "") ||
+  "http://localhost:5000";
+
 function Login() {
   const navigate = useNavigate();
 
@@ -121,13 +125,10 @@ function Login() {
       setLoading(true);
       setError("");
 
-      const response = await axios.post(
-        "http://localhost:5000/api/admin/login",
-        {
-          email,
-          password,
-        }
-      );
+      const response = await axios.post(`${API_BASE}/api/admin/login`, {
+        email: email.trim(),
+        password,
+      });
 
       if (response.data.success) {
         localStorage.setItem("token", response.data.token);
@@ -137,10 +138,15 @@ function Login() {
         setError(response.data.message || "Login Failed");
       }
     } catch (error) {
-      setError(
-        error.response?.data?.message ||
-          "Invalid email or password."
-      );
+      if (!error.response) {
+        setError(
+          `Cannot reach the API at ${API_BASE}. Start the backend (npm start in backend/) and ensure MongoDB + JWT_SECRET are set in backend/.env.`
+        );
+      } else {
+        setError(
+          error.response?.data?.message || "Invalid email or password."
+        );
+      }
     } finally {
       setLoading(false);
     }

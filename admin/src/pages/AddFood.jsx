@@ -247,7 +247,7 @@ const AddFood = () => {
       setLoading(true);
 
       await axios.post(
-        "http://localhost:5000/api/foods",
+        "https://fresh-bites-backend-updi.onrender.com/api/foods",
         food
       );
 

@@ -1,0 +1,68 @@
+customer_id,food_id,food_name,category,price,order_quantity,average_rating,recommendation_score,reason
+6a0aefcabe7e772a72fbfc9a,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a0aefcabe7e772a72fbfc9a,6a3a141362d6a90982060dba,Chicken Burger,Burger,199,24,4.666666666666667,0.7333333333333334,Popular choice and highly rated
+6a0aefcabe7e772a72fbfc9a,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a0aefcabe7e772a72fbfc9a,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a0aefcabe7e772a72fbfc9a,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a0c883993d82265efb78dda,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a0c883993d82265efb78dda,6a3a141362d6a90982060dba,Chicken Burger,Burger,199,24,4.666666666666667,0.7333333333333334,Popular choice and highly rated
+6a0c883993d82265efb78dda,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a0c883993d82265efb78dda,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a0c883993d82265efb78dda,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a0c88d893d82265efb78ddb,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a0c88d893d82265efb78ddb,6a3a141362d6a90982060dba,Chicken Burger,Burger,199,24,4.666666666666667,0.7333333333333334,Popular choice and highly rated
+6a0c88d893d82265efb78ddb,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a0c88d893d82265efb78ddb,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a0c88d893d82265efb78ddb,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a0d8510dc56c7e9f02a3721,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a0d8510dc56c7e9f02a3721,6a3a141362d6a90982060dba,Chicken Burger,Burger,199,24,4.666666666666667,0.7333333333333334,Popular choice and highly rated
+6a0d8510dc56c7e9f02a3721,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a0d8510dc56c7e9f02a3721,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a0d8510dc56c7e9f02a3721,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a256b174f9819bc4fb51e1a,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a256b174f9819bc4fb51e1a,6a3a141362d6a90982060dba,Chicken Burger,Burger,199,24,4.666666666666667,0.7333333333333334,Popular choice and highly rated
+6a256b174f9819bc4fb51e1a,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a256b174f9819bc4fb51e1a,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a256b174f9819bc4fb51e1a,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a3915fac39de72aa0fe4855,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a3915fac39de72aa0fe4855,6a3a141362d6a90982060dba,Chicken Burger,Burger,199,24,4.666666666666667,0.7333333333333334,Popular choice and highly rated
+6a3915fac39de72aa0fe4855,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a391810c39de72aa0fe4b24,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a391810c39de72aa0fe4b24,6a3a141362d6a90982060dba,Chicken Burger,Burger,199,24,4.666666666666667,0.7333333333333334,Popular choice and highly rated
+6a391810c39de72aa0fe4b24,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a391810c39de72aa0fe4b24,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a391810c39de72aa0fe4b24,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a391828c39de72aa0fe4b25,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a391828c39de72aa0fe4b25,6a3a141362d6a90982060dba,Chicken Burger,Burger,199,24,4.666666666666667,0.7333333333333334,Popular choice and highly rated
+6a391828c39de72aa0fe4b25,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a391828c39de72aa0fe4b25,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a391828c39de72aa0fe4b25,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a39183ac39de72aa0fe4b2c,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a39183ac39de72aa0fe4b2c,6a3a141362d6a90982060dba,Chicken Burger,Burger,199,24,4.666666666666667,0.7333333333333334,Popular choice and highly rated
+6a39183ac39de72aa0fe4b2c,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a39183ac39de72aa0fe4b2c,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a39183ac39de72aa0fe4b2c,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a391850c39de72aa0fe4b2d,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a391850c39de72aa0fe4b2d,6a3a141362d6a90982060dba,Chicken Burger,Burger,199,24,4.666666666666667,0.7333333333333334,Popular choice and highly rated
+6a391850c39de72aa0fe4b2d,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a391850c39de72aa0fe4b2d,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a391850c39de72aa0fe4b2d,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a391867c39de72aa0fe4b2e,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a391867c39de72aa0fe4b2e,6a3a141362d6a90982060dba,Chicken Burger,Burger,199,24,4.666666666666667,0.7333333333333334,Popular choice and highly rated
+6a391867c39de72aa0fe4b2e,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a391867c39de72aa0fe4b2e,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a391867c39de72aa0fe4b2e,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a3a8d0b9a9d49136daf72f1,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a3a8d0b9a9d49136daf72f1,6a3a141362d6a90982060dba,Chicken Burger,Burger,199,24,4.666666666666667,0.7333333333333334,Popular choice and highly rated
+6a3a8d0b9a9d49136daf72f1,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a3a8d0b9a9d49136daf72f1,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a3a8d0b9a9d49136daf72f1,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a3abc297b08f34cb6faa18f,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a3b6bd14e04b6e3e55a15a6,6a3ac88335251d0f0b3aeaa7,Chips,Snacks,49,40,4.666666666666667,0.9733333333333334,Popular choice and highly rated
+6a3b6bd14e04b6e3e55a15a6,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a3b6bd14e04b6e3e55a15a6,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a3b6bd14e04b6e3e55a15a6,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a4fa4cc41c0748cf524b209,6a391e6cc39de72aa0fe55ce,PizzaSnacks,Snacks,299,7,0.0,0.105,Popular choice
+6a4fa4cc41c0748cf524b209,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice
+6a4fd1ad35be3dc3a8687cef,6a39214c0fe991c30b78d151,Coldrinks,Drinks,49,12,0.0,0.18,Popular choice
+6a4fd1ad35be3dc3a8687cef,6a3922850fe991c30b78d4e8,Lassi,Drinks,79,6,0.0,0.09,Popular choice

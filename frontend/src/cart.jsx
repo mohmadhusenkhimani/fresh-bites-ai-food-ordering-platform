@@ -254,6 +254,8 @@ import {
   increment,
   decrement,
   removeFromCart,
+  applyCoupon,
+  removeCoupon,
 } from "./cartSlice";
 import { useEffect, useState } from "react";
 import { FaTrash, FaMinus, FaPlus, FaTag } from "react-icons/fa";
@@ -271,11 +273,18 @@ function Cart() {
     (state) => state.carts?.items || []
   );
 
-  const [couponCode, setCouponCode] = useState("");
-  const [discount, setDiscount] = useState(0);
-  const [finalTotal, setFinalTotal] = useState(0);
+  const appliedCoupon = useSelector(
+    (state) => state.carts?.appliedCoupon || ""
+  );
+
+  const couponDiscount = useSelector(
+    (state) => Number(state.carts?.couponDiscount) || 0
+  );
+
+  const [couponCode, setCouponCode] = useState(
+    appliedCoupon || ""
+  );
   const [couponMessage, setCouponMessage] = useState("");
-  const [couponApplied, setCouponApplied] = useState(false);
   const [applyingCoupon, setApplyingCoupon] = useState(false);
 
   /*
@@ -291,15 +300,77 @@ function Cart() {
       )
     : 0;
 
+  const couponApplied = Boolean(appliedCoupon);
+  const discount = couponApplied
+    ? Math.min(couponDiscount, total)
+    : 0;
+  const finalTotal = Math.max(0, total - discount);
+  const shippingFee = 30;
+
   /*
-   * Keep final total synchronized with cart total
-   * when no coupon is applied.
+   * Keep the saved coupon in sync with the current cart.
+   * Refreshing the page restores it from Redux/localStorage.
    */
   useEffect(() => {
-    if (!couponApplied) {
-      setFinalTotal(total);
+    if (!appliedCoupon || total <= 0) {
+      return undefined;
     }
-  }, [total, couponApplied]);
+
+    let cancelled = false;
+
+    const revalidateCoupon = async () => {
+      try {
+        const { data } = await axios.post(
+          "http://localhost:5000/api/coupons/apply",
+          {
+            code: appliedCoupon,
+            cartTotal: total,
+          }
+        );
+
+        if (cancelled) {
+          return;
+        }
+
+        const nextDiscount = Number(data.discount) || 0;
+
+        if (nextDiscount !== couponDiscount) {
+          dispatch(
+            applyCoupon({
+              code: data.coupon || appliedCoupon,
+              discount: nextDiscount,
+            })
+          );
+        }
+
+        setCouponCode(data.coupon || appliedCoupon);
+        setCouponMessage(
+          data.message || "Coupon applied successfully."
+        );
+      } catch (error) {
+        if (cancelled) {
+          return;
+        }
+
+        const status = error.response?.status;
+
+        if (status && status < 500) {
+          dispatch(removeCoupon());
+        }
+
+        setCouponMessage(
+          error.response?.data?.message ||
+            "This coupon can no longer be applied."
+        );
+      }
+    };
+
+    revalidateCoupon();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [appliedCoupon, total, couponDiscount, dispatch]);
 
   /*
    * Apply Coupon
@@ -307,9 +378,12 @@ function Cart() {
   const handleApplyCoupon = async () => {
     if (!couponCode.trim()) {
       setCouponMessage("Please enter a coupon code.");
-      setCouponApplied(false);
-      setDiscount(0);
-      setFinalTotal(total);
+      dispatch(removeCoupon());
+      return;
+    }
+
+    if (total <= 0) {
+      setCouponMessage("Your cart is empty.");
       return;
     }
 
@@ -325,16 +399,18 @@ function Cart() {
         }
       );
 
-      setDiscount(Number(data.discount) || 0);
-      setFinalTotal(Number(data.finalTotal) || total);
+      dispatch(
+        applyCoupon({
+          code: data.coupon || couponCode.trim().toUpperCase(),
+          discount: Number(data.discount) || 0,
+        })
+      );
+      setCouponCode(data.coupon || couponCode.trim().toUpperCase());
       setCouponMessage(
         data.message || "Coupon applied successfully."
       );
-      setCouponApplied(true);
     } catch (error) {
-      setDiscount(0);
-      setFinalTotal(total);
-      setCouponApplied(false);
+      dispatch(removeCoupon());
 
       setCouponMessage(
         error.response?.data?.message ||
@@ -349,11 +425,22 @@ function Cart() {
    * Remove Coupon
    */
   const handleRemoveCoupon = () => {
+    dispatch(removeCoupon());
     setCouponCode("");
-    setDiscount(0);
-    setFinalTotal(total);
     setCouponMessage("");
-    setCouponApplied(false);
+  };
+
+  const handleCheckout = () => {
+    navigate("/paymentForm", {
+      state: {
+        couponCode: appliedCoupon || "",
+        discount,
+        subtotal: total,
+        shippingFee,
+        finalTotal,
+        payableTotal: finalTotal + shippingFee,
+      },
+    });
   };
 
   /*
@@ -754,7 +841,7 @@ function Cart() {
 
               <button
                 type="button"
-                onClick={() => navigate("/paymentForm")}
+                onClick={handleCheckout}
                 className="w-full bg-red-500 hover:bg-red-600 text-white py-3.5 rounded-xl font-semibold transition flex items-center justify-center gap-2 shadow-lg shadow-red-500/10"
               >
                 Proceed to Checkout
